@@ -1,8 +1,59 @@
-import React from "react";
-import { Container, Table } from "react-bootstrap";
+import React, { useState } from "react";
+import { Container, Table, Button, Row, Col, Navbar } from "react-bootstrap";
+import { Usuario } from "../models/Model";
+import CrearUsuario from "../components/CrearUsuario";
+import ModificarUsuario from "../components/ModificarUsuario";
+
+const usuarios: Usuario[] = [
+  {
+    id: "1",
+    nombre: "Juan",
+    apellido: "Paez",
+    correo: "jaun@sinco.com",
+    telefono: "3222123212231",
+    pais: "Mex",
+    ciudad: "Bog"
+  },
+  {
+    id: "2",
+    nombre: "Lina",
+    apellido: "Gomez",
+    correo: "Ojeda@sinco.com",
+    telefono: "3222123212231",
+    pais: "Col",
+    ciudad: "Bog"
+  },
+  {
+    id: "2",
+    nombre: "Lina",
+    apellido: "Gomez",
+    correo: "Ojeda@sinco.com",
+    telefono: "3222123212231",
+    pais: "Col",
+    ciudad: "Bog"
+  },
+  {
+    id: "3",
+    nombre: "Daniela",
+    apellido: "Ojeda",
+    correo: "Ojeda@sinco.com",
+    telefono: "3222123212231",
+    pais: "Arg",
+    ciudad: "Bog"
+  }
+];
+
 const User: React.FC = () => {
   return (
     <Container fluid>
+      <Navbar
+        bg="dark"
+        variant="dark"
+        className="tituloTbl"
+        style={{ color: "white", marginTop: "20px" }}
+      >
+        <h4>INFORME USUARIOS</h4>
+      </Navbar>
       <Table
         responsive
         striped
@@ -15,6 +66,7 @@ const User: React.FC = () => {
           <tr>
             <th>ID</th>
             <th>NOMBRE</th>
+            <th>APELLIDO</th>
             <th>CORREO</th>
             <th>TELÉFONO</th>
             <th>PAÍS</th>
@@ -23,17 +75,32 @@ const User: React.FC = () => {
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>1</td>
-            <td>sadasdsa</td>
-            <td>asdasda</td>
-            <td>asdsadasdasdasd</td>
-            <td>asdasdas</td>
-            <td>sadassadas</td>
-            <td>asdasd</td>
-          </tr>
+          {usuarios.map((usuario, idx) => {
+            return (
+              <tr key={usuario.id}>
+                <td>{usuario.id}</td>
+                <td>{usuario.nombre}</td>
+                <td>{usuario.apellido}</td>
+                <td>{usuario.correo}</td>
+                <td>{usuario.telefono}</td>
+                <td>{usuario.pais}</td>
+                <td>{usuario.ciudad}</td>
+                <td>
+                  <Button variant="secondary" block>
+                    MODIFICAR
+                  </Button>
+                </td>
+              </tr>
+            );
+          })}
         </tbody>
       </Table>
+      <Row>
+        <Col xs={3}>
+          <CrearUsuario />
+        </Col>
+      </Row>
+      <ModificarUsuario />
     </Container>
   );
 };
