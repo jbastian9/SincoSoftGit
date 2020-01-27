@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import { Container } from "react-bootstrap";
 import Home from "./pages/Home";
 import { BrowserRouter, Route } from "react-router-dom";
