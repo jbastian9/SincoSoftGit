@@ -1,11 +1,17 @@
 import React, { useState } from "react";
 import { Button, Modal, Container, Form } from "react-bootstrap";
+import { Usuario } from "../models/Model";
 
-const ModificarUsuario: React.FC = () => {
-  const [view, setView] = useState(false);
+interface IPropsModificarUsuario {
+  view: boolean;
+  ocultar: () => void;
+  datosUsuario: Usuario | null;
+}
+
+const ModificarUsuario: React.FC<IPropsModificarUsuario> = props => {
   return (
     <Container>
-      <Modal show={view} onHide={() => setView}>
+      <Modal show={props.view} onHide={props.ocultar}>
         <Modal.Header closeButton>
           <Modal.Title>MODIFICAR USUARIO</Modal.Title>
         </Modal.Header>
@@ -14,29 +20,33 @@ const ModificarUsuario: React.FC = () => {
           <Form.Control
             className="inputUsuario"
             type="text"
-            placeholder="Johan"
+            defaultValue={props.datosUsuario?.nombre}
           />
           <Form.Label className="inputUsuario">Apellido</Form.Label>
           <Form.Control
             className="inputUsuario"
             type="text"
-            placeholder="Quintero"
+            defaultValue={props.datosUsuario?.apellido}
           />
           <Form.Label className="inputUsuario">Correo</Form.Label>
           <Form.Control
             className="inputUsuario"
             type="email"
-            placeholder="jbastian9@hotmail.com"
+            defaultValue={props.datosUsuario?.correo}
+            disabled
           />
           <Form.Label className="inputUsuario">Teléfono</Form.Label>
           <Form.Control
             className="inputUsuario"
             type="text"
-            placeholder="3234721056"
+            defaultValue={props.datosUsuario?.telefono}
           />
           <Form.Label className="inputUsuario">País</Form.Label>
           <Form.Control className="inputUsuario" as="select">
-            <option>--Desplegar--</option>
+            <option
+              value={props.datosUsuario?.pais}
+              label={props.datosUsuario?.pais}
+            ></option>
             <option>eeuu</option>
             <option>chl</option>
             <option>mex</option>
@@ -44,7 +54,10 @@ const ModificarUsuario: React.FC = () => {
           </Form.Control>
           <Form.Label className="inputUsuario">Ciudad</Form.Label>
           <Form.Control className="inputUsuario" as="select">
-            <option>--Desplegar--</option>
+            <option
+              value={props.datosUsuario?.ciudad}
+              label={props.datosUsuario?.ciudad}
+            ></option>
             <option>2</option>
             <option>3</option>
             <option>4</option>
@@ -52,10 +65,10 @@ const ModificarUsuario: React.FC = () => {
           </Form.Control>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={() => setView(false)}>
+          <Button variant="secondary" onClick={props.ocultar}>
             CANCELAR
           </Button>
-          <Button variant="primary" onClick={() => setView(false)}>
+          <Button variant="primary" onClick={props.ocultar}>
             GUARDAR
           </Button>
         </Modal.Footer>

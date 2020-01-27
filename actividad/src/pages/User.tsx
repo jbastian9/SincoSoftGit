@@ -44,6 +44,22 @@ const usuarios: Usuario[] = [
 ];
 
 const User: React.FC = () => {
+  const [traerDatosUsuario, setTraerDatosUsuario] = useState<Usuario | null>(
+    null
+  );
+
+  const [
+    mostarModalModificarUsuario,
+    setMostrarModalModificarUsuario
+  ] = useState(false);
+
+  const ocultarModalUsuario = () => {
+    setMostrarModalModificarUsuario(false);
+  };
+  function viewModal(usuario: Usuario) {
+    setMostrarModalModificarUsuario(true);
+    setTraerDatosUsuario(usuario);
+  }
   return (
     <Container fluid>
       <Navbar
@@ -86,7 +102,11 @@ const User: React.FC = () => {
                 <td>{usuario.pais}</td>
                 <td>{usuario.ciudad}</td>
                 <td>
-                  <Button variant="secondary" block>
+                  <Button
+                    variant="secondary"
+                    block
+                    onClick={() => viewModal(usuario)}
+                  >
                     MODIFICAR
                   </Button>
                 </td>
@@ -100,7 +120,11 @@ const User: React.FC = () => {
           <CrearUsuario />
         </Col>
       </Row>
-      <ModificarUsuario />
+      <ModificarUsuario
+        view={mostarModalModificarUsuario}
+        ocultar={ocultarModalUsuario}
+        datosUsuario={traerDatosUsuario}
+      />
     </Container>
   );
 };
