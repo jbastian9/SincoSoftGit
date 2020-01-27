@@ -123,17 +123,37 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
+    <Folder Include="Controllers\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="Controllers\PruebaController.cs" />
+    <Compile Include="DAL-Data Access Layer\Context.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202001271813339_TablaUsuario.cs" />
+    <Compile Include="Migrations\202001271813339_TablaUsuario.designer.cs">
+      <DependentUpon>202001271813339_TablaUsuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202001271950317_TablaCorreo.cs" />
+    <Compile Include="Migrations\202001271950317_TablaCorreo.designer.cs">
+      <DependentUpon>202001271950317_TablaCorreo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202001272027288_TablasFaltantes.cs" />
+    <Compile Include="Migrations\202001272027288_TablasFaltantes.designer.cs">
+      <DependentUpon>202001272027288_TablasFaltantes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Ciudad.cs" />
+    <Compile Include="Models\Contacto.cs" />
+    <Compile Include="Models\Correo.cs" />
+    <Compile Include="Models\HistorialCorreosEnviados.cs" />
+    <Compile Include="Models\Pais.cs" />
+    <Compile Include="Models\PaisNMCiudades.cs" />
+    <Compile Include="Models\Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -149,7 +169,17 @@
       <DependentUpon>Web.config</DependentUpon>
     </Content>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202001271813339_TablaUsuario.resx">
+      <DependentUpon>202001271813339_TablaUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001271950317_TablaCorreo.resx">
+      <DependentUpon>202001271950317_TablaCorreo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001272027288_TablasFaltantes.resx">
+      <DependentUpon>202001272027288_TablasFaltantes.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
