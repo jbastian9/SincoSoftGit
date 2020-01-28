@@ -9,6 +9,9 @@ namespace WebApplication
     {
         public static void Register(HttpConfiguration config)
         {
+
+            config.EnableCors(); 
+
             // Configuración y servicios de API web
 
             // Rutas de API web
@@ -16,8 +19,8 @@ namespace WebApplication
 
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
-                routeTemplate: "api/{controller}/{id}",
-                defaults: new { id = RouteParameter.Optional }
+                routeTemplate: "api/{controller}/{action}/{id}",
+                defaults: new {action= RouteParameter.Optional , id = RouteParameter.Optional }
             );
         }
     }

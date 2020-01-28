@@ -7,7 +7,7 @@ using WebApplication.Models;
 using System.Data.Entity.ModelConfiguration.Conventions;
 
 
-namespace WebApplication.DAL_Data_Access_Layer
+namespace WebApplication.DAL
 {
     public class Context : DbContext
     {
