@@ -140,15 +140,20 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\PaisController.cs" />
     <Compile Include="Controllers\UbicacionController.cs" />
+    <Compile Include="Controllers\UsuarioController.cs" />
     <Compile Include="DAL\Context.cs" />
+    <Compile Include="DTO\DTOUsuario.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Migrations\202001281500366_PrimeraMigracion.cs" />
     <Compile Include="Migrations\202001281500366_PrimeraMigracion.designer.cs">
       <DependentUpon>202001281500366_PrimeraMigracion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202001282146569_EliminacionCampoIdPais.cs" />
+    <Compile Include="Migrations\202001282146569_EliminacionCampoIdPais.designer.cs">
+      <DependentUpon>202001282146569_EliminacionCampoIdPais.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Ciudad.cs" />
@@ -177,6 +182,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202001281500366_PrimeraMigracion.resx">
       <DependentUpon>202001281500366_PrimeraMigracion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001282146569_EliminacionCampoIdPais.resx">
+      <DependentUpon>202001282146569_EliminacionCampoIdPais.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

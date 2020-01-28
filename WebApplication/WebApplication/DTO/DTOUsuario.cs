@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace WebApplication.Models
+namespace WebApplication.DTO
 {
-    public class Usuario
+    public class DTOUsuario
     {
         public int ID { get; set; }
         public string Nombre { get; set; }
@@ -13,7 +13,8 @@ namespace WebApplication.Models
         public string Correo { get; set; }
         public string Telefono { get; set; }
         public int CiudadId { get; set; }
-        public Ciudad Ciudad { get; set; }
+        public string PaisNombre { get; set; }
+        public string CiudadNombre { get; set; }
 
     }
 }

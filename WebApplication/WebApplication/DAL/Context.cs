@@ -40,7 +40,6 @@ namespace WebApplication.DAL
             mb.Entity<Usuario>().Property(x => x.Apellido).HasColumnType("varchar").HasMaxLength(30).IsRequired();
             mb.Entity<Usuario>().Property(x => x.Correo).HasColumnType("varchar").HasMaxLength(100).IsRequired();
             mb.Entity<Usuario>().Property(x => x.Telefono).HasColumnType("varchar").HasMaxLength(10).IsRequired();
-            mb.Entity<Usuario>().HasRequired(x => x.Pais).WithMany().HasForeignKey(x => x.PaisId).WillCascadeOnDelete(false);
             mb.Entity<Usuario>().HasRequired(x => x.Ciudad).WithMany().HasForeignKey(x => x.CiudadId).WillCascadeOnDelete(false);
 
             mb.Entity<Contacto>().HasKey(x => x.ID);

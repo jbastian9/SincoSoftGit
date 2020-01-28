@@ -23,6 +23,11 @@ namespace WebApplication.Controllers
         {
             return Ok(db.Pais.Where(x => x.Nombre.Contains(texto)).Select(x=> x.Nombre.ToUpper()));
         }
+        [HttpGet]
+        public IHttpActionResult GetCiudadesDeUnPais(int IdPais)
+        {
+            return Ok(db.Ciudad.Where(x=>x.PaisId.Equals(IdPais)).Select(x=>x.Nombre.ToUpper()));
+        }
 
     }
 }
